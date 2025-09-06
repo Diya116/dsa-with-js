@@ -23,3 +23,5 @@ class Car {
 
 const car = new Car().setMake('Toyota').setModel('Corolla').setColor('Blue');
 ```
+
+## Array Prototype ##
