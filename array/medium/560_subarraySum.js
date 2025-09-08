@@ -33,3 +33,32 @@ var subarraySum = function(nums, k) {
 
 //Time Complexity:O(n) (each element processed once and set(),get(),has() has o(1))
 // Space Complexity:o(n) (in worst case when each prefix sum is unique)
+
+//?similar other question: max length subarray with sum 0
+
+var maxlen=(nums,n)=>
+{
+   let map=new Map();//prefixsum,index
+   let sum=0;
+   let maxlen=0;
+   map.set(sum+nums[0],0)
+   for(let i=1;i<nums.length;i++)
+   {
+      sum+=nums[i];
+      if(sum===0)
+      {
+        maxlen=i+1;
+      }
+      else{
+      if(map.has(sum))
+      {
+        maxlen=Math.max(maxlen,i-map.get(sum));
+      }
+      else{
+        map.set(sum,i)
+      }
+    }
+   }
+   
+    return maxlen;
+}
