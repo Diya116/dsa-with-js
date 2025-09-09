@@ -24,7 +24,25 @@ var subarraySum = function(nums, k) {
     }
     return count;
 };
-
+//?Longest Subarray with sum K (positive and negative)
+var subarraySum = function(nums, k) {
+    let map=new Map();
+    let sum=0;
+    let maxlen=0;
+    map.set(0,-1);
+    for(let i=0;i<nums.length;i++)
+    {
+        sum+=nums[i];
+        if(map.has(sum-k))
+        {
+            maxlen=Math.max(maxlen,(i-map.get(sum-k)));
+            continue;
+        }
+        map.set(sum,i);
+    }
+    return maxlen;
+};
+//?IMP: if numbers are only positive we can also use two pointer approach to find length and count both(covered in easy array question)
 //this is optimal approach for solving subarray count with sum=k
 //we will create one map which include value of (prefixsum,count)
 //so each prefix sum is sum of subarray till ith position
