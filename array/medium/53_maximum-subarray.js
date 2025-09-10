@@ -23,3 +23,25 @@ var maxSubArray = function(nums) {
 // Todo:learning:
 //?if sum of subarray becomes already negative adding more value just reduce the overall sum so if sum become negative make sum=0
 
+//?print the max subarray
+
+ function printsubarray(nums){
+   let maxstart=-1;
+   let maxend=-1;
+   let maxsum=Math.MIN_SAFE_INTEGER;
+   let sum=0;
+   let start=-1;
+   for(let i=0;i<nums.length;i++)
+   {
+       if(sum==0) start=i;
+       sum+=nums[i];
+       if(sum>max)
+       {
+        maxsum=sum;
+        maxstart=start;
+        maxend=end;
+       }
+       if(sum<0) sum=0;
+   }
+
+ }
